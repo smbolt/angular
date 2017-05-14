@@ -4,6 +4,7 @@ import { FrameworkBodyComponent} from './framework-body/framework-body.component
 import { SpaFxContentComponent} from './spafx-content/spafx-content.component'; 
 import { TitleBarComponent} from './title-bar/title-bar.component';
 import { SpafxTopBarComponent } from './spafx-top-bar/spafx-top-bar.component';
+import { FrameworkConfigService } from './services/framework-config.service';
 
 @NgModule({
   imports: [
@@ -14,6 +15,9 @@ import { SpafxTopBarComponent } from './spafx-top-bar/spafx-top-bar.component';
     SpaFxContentComponent,
     TitleBarComponent,
     SpafxTopBarComponent
+  ],
+  providers:[
+    FrameworkConfigService
   ],
   exports: [
     FrameworkBodyComponent
