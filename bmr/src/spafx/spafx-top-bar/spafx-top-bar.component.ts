@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FrameworkConfigService } from './../services/framework-config.service';
 
 @Component({
   selector: 'spafx-top-bar',
