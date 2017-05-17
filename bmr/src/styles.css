@@ -3,3 +3,12 @@
 body {
   font-family: 'Open Sans', sans-serif;
 }
+
+
+/* override spa framework (spafx) styles
+   the ovrd- prefix indicates an override for styles set in the framework
+
+.ovrd-title-bar{
+}
+
+*/

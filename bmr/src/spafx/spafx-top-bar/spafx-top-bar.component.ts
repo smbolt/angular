@@ -8,7 +8,7 @@ import { FrameworkConfigService } from './../services/framework-config.service';
 })
 export class SpafxTopBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private frameworkConfigService: FrameworkConfigService) { }
 
   ngOnInit() {
   }
