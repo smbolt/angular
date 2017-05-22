@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FrameworkConfigService } from './services/framework-config.service';
+import { ScreenService } from './services/screen.service';
 import { FrameworkBodyComponent} from './framework-body/framework-body.component';
 import { SpaFxContentComponent} from './spafx-content/spafx-content.component'; 
 import { TitleBarComponent} from './title-bar/title-bar.component';
@@ -19,7 +20,8 @@ import { SpafxStatusBarComponent } from './spafx-status-bar/spafx-status-bar.com
     SpafxStatusBarComponent
   ],
   providers:[
-    FrameworkConfigService
+    FrameworkConfigService,
+    ScreenService
   ],
   exports: [
     FrameworkBodyComponent
