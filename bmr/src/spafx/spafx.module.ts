@@ -7,6 +7,8 @@ import { SpaFxContentComponent} from './spafx-content/spafx-content.component';
 import { TitleBarComponent} from './title-bar/title-bar.component';
 import { SpafxTopBarComponent } from './spafx-top-bar/spafx-top-bar.component';
 import { SpafxStatusBarComponent } from './spafx-status-bar/spafx-status-bar.component';
+import { ScreenLarge } from './directives/screen-large.directive';
+import { ScreenBelowLarge } from './directives/screen-below-large.directive';
 
 @NgModule({
   imports: [
@@ -17,7 +19,9 @@ import { SpafxStatusBarComponent } from './spafx-status-bar/spafx-status-bar.com
     SpaFxContentComponent,
     TitleBarComponent,
     SpafxTopBarComponent,
-    SpafxStatusBarComponent
+    SpafxStatusBarComponent,
+    ScreenLarge,
+    ScreenBelowLarge
   ],
   providers:[
     FrameworkConfigService,
