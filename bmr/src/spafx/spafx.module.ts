@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FrameworkConfigService } from './services/framework-config.service';
 import { ScreenService } from './services/screen.service';
-import { FrameworkBodyComponent} from './framework-body/framework-body.component';
+import { SpaFxBodyComponent} from './spafx-body/spafx-body.component';
 import { SpaFxContentComponent} from './spafx-content/spafx-content.component'; 
-import { TitleBarComponent} from './title-bar/title-bar.component';
-import { SpafxTopBarComponent } from './spafx-top-bar/spafx-top-bar.component';
-import { SpafxStatusBarComponent } from './spafx-status-bar/spafx-status-bar.component';
+import { SpaFxTitleBarComponent} from './spafx-title-bar/spafx-title-bar.component';
+import { SpaFxTopBarComponent } from './spafx-top-bar/spafx-top-bar.component';
+import { SpaFxStatusBarComponent } from './spafx-status-bar/spafx-status-bar.component';
 import { ScreenLarge } from './directives/screen-large.directive';
 import { ScreenBelowLarge } from './directives/screen-below-large.directive';
 
@@ -15,11 +15,11 @@ import { ScreenBelowLarge } from './directives/screen-below-large.directive';
     CommonModule
   ],
   declarations: [
-    FrameworkBodyComponent,
+    SpaFxBodyComponent,
     SpaFxContentComponent,
-    TitleBarComponent,
-    SpafxTopBarComponent,
-    SpafxStatusBarComponent,
+    SpaFxTitleBarComponent,
+    SpaFxTopBarComponent,
+    SpaFxStatusBarComponent,
     ScreenLarge,
     ScreenBelowLarge
   ],
@@ -28,7 +28,7 @@ import { ScreenBelowLarge } from './directives/screen-below-large.directive';
     ScreenService
   ],
   exports: [
-    FrameworkBodyComponent
+    SpaFxBodyComponent
   ]
 })
 export class SpafxModule { }

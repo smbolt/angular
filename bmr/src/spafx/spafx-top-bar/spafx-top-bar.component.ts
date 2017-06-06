@@ -6,7 +6,7 @@ import { FrameworkConfigService } from './../services/framework-config.service';
   templateUrl: './spafx-top-bar.component.html',
   styleUrls: ['./spafx-top-bar.component.css']
 })
-export class SpafxTopBarComponent implements OnInit {
+export class SpaFxTopBarComponent implements OnInit {
 
   constructor(private frameworkConfigService: FrameworkConfigService) { }
 

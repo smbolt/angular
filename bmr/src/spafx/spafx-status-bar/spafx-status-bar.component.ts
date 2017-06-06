@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './spafx-status-bar.component.html',
   styleUrls: ['./spafx-status-bar.component.css']
 })
-export class SpafxStatusBarComponent implements OnInit {
+export class SpaFxStatusBarComponent implements OnInit {
 
   constructor() { }
 
