@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ScreenService} from './../services/screen.service';
+import { SpaFxScreenService} from './../services/spafx-screen.service';
 
 @Component({
   selector: 'spafx-title-bar',
@@ -8,7 +8,7 @@ import { ScreenService} from './../services/screen.service';
 })
 export class SpaFxTitleBarComponent implements OnInit {
 
-  constructor(private screenService: ScreenService) { }
+  constructor(private screenService: SpaFxScreenService) { }
 
   ngOnInit() {
   }

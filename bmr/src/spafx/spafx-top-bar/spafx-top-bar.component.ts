@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FrameworkConfigService } from './../services/framework-config.service';
+import { SpaFxConfigService } from './../services/spafx-config.service';
 
 @Component({
   selector: 'spafx-top-bar',
@@ -8,7 +8,7 @@ import { FrameworkConfigService } from './../services/framework-config.service';
 })
 export class SpaFxTopBarComponent implements OnInit {
 
-  constructor(private frameworkConfigService: FrameworkConfigService) { }
+  constructor(private spaFxConfigService: SpaFxConfigService) { }
 
   ngOnInit() {
   }
