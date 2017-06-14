@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SpaFxConfigService } from './services/spafx-config.service';
 import { SpaFxScreenService } from './services/spafx-screen.service';
 import { SpaFxMenuService } from './services/spafx-menu.service';
+import { SpaFxMenuComponent } from './spafx-menus/spafx-menu/spafx-menu.component';
 import { SpaFxBodyComponent} from './spafx-body/spafx-body.component';
 import { SpaFxContentComponent} from './spafx-content/spafx-content.component'; 
 import { SpaFxTitleBarComponent} from './spafx-title-bar/spafx-title-bar.component';
@@ -22,7 +23,9 @@ import { SpaFxScreenBelowLarge } from './directives/spafx-screen-below-large.dir
     SpaFxTopBarComponent,
     SpaFxStatusBarComponent,
     SpaFxScreenLarge,
-    SpaFxScreenBelowLarge
+    SpaFxScreenBelowLarge,
+    SpaFxMenuComponent
+    
   ],
   providers:[
     SpaFxConfigService,
