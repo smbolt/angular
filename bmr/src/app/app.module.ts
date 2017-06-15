@@ -2,9 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
+
 
 import { AppComponent } from './app.component';
-import { SpafxModule} from '../spafx/spafx.module';
+import { SpaFxModule} from '../spafx/spafx.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,8 @@ import { SpafxModule} from '../spafx/spafx.module';
     BrowserModule,
     FormsModule,
     HttpModule,
-    SpafxModule
+    RouterModule,
+    SpaFxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

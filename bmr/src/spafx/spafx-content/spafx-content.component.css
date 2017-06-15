@@ -1,5 +1,10 @@
 :host{
   display: flex;
-  background-color: lightgreen;
+  background-color: #dcdcdc;
+  flex-grow: 1;
+}
+
+.body-style {
+  padding: 20px;
   flex-grow: 1;
 }

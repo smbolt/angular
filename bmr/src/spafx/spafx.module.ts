@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { SpaFxConfigService } from './services/spafx-config.service';
 import { SpaFxScreenService } from './services/spafx-screen.service';
 import { SpaFxMenuService } from './services/spafx-menu.service';
@@ -15,7 +16,8 @@ import { SpaFxScreenBelowLarge } from './directives/spafx-screen-below-large.dir
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   declarations: [
     SpaFxBodyComponent,
@@ -37,4 +39,4 @@ import { SpaFxScreenBelowLarge } from './directives/spafx-screen-below-large.dir
     SpaFxBodyComponent
   ]
 })
-export class SpafxModule { }
+export class SpaFxModule { }
