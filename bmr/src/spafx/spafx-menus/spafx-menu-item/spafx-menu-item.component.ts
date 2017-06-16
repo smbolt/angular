@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { SpaFxMenuService } from '../../services/spafx-menu.service';
 import { SpaFxMenuItem } from '../../services/spafx-menu.service';
 
 @Component({
