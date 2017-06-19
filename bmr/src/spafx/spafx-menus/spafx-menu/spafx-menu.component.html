@@ -1,7 +1,8 @@
 <nav>
   <ul>
     <li *ngFor="let item of menuService.items">
-      <spafx-menu-item [item]="item">
+      <spafx-menu-item [item]="item"
+                       [ngClass]="{'vertical-menu': menuService.isVertical }" >
       </spafx-menu-item>
     </li>
   </ul>

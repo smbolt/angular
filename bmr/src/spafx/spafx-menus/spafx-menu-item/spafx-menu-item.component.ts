@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { SpaFxMenuService } from '../../services/spafx-menu.service';
 import { SpaFxMenuItem } from '../../services/spafx-menu.service';
 
@@ -8,9 +9,9 @@ import { SpaFxMenuItem } from '../../services/spafx-menu.service';
   styleUrls: ['./spafx-menu-item.component.css']
 })
 export class SpaFxMenuItemComponent implements OnInit {
-  @Input() item: SpaFxMenuItem;
+  @Input() item = <SpaFxMenuItem> null; // see angular-cli issue 2034
 
-  constructor() { }
+  constructor(private menuService: SpaFxMenuService) { }
 
   ngOnInit() {
   }

@@ -11,4 +11,5 @@ export interface SpaFxMenuItem {
 export class SpaFxMenuService {
 
   items: Array<SpaFxMenuItem>;
+  isVertical = true;
 }
