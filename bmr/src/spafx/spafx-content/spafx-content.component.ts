@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SpaFxMenuService } from './../services/spafx-menu.service';
+import { SpaFxScreenService } from './../services/spafx-screen.service';
 
 @Component({
   selector: 'spafx-content',
@@ -8,7 +9,8 @@ import { SpaFxMenuService } from './../services/spafx-menu.service';
 })
 export class SpaFxContentComponent implements OnInit {
 
-  constructor(private menuService: SpaFxMenuService) { }
+  constructor(private menuService: SpaFxMenuService,
+              private screenService: SpaFxScreenService) { }
 
   ngOnInit() {
   }

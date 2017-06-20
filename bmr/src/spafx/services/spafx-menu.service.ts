@@ -12,4 +12,9 @@ export class SpaFxMenuService {
 
   items: Array<SpaFxMenuItem>;
   isVertical = true;
+  showingLeftSideMenu = false;
+
+  toggleLeftSideMenu() : void {
+    this.showingLeftSideMenu = !this.showingLeftSideMenu;
+  }
 }
