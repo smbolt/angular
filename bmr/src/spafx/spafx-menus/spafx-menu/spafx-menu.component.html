@@ -2,7 +2,8 @@
   <ul>
     <li *ngFor="let item of menuService.items">
       <spafx-menu-item [item]="item"
-                       [ngClass]="{'vertical-menu': menuService.isVertical }" >
+                       [ngClass]="{'vertical-menu': menuService.isVertical }" 
+                       [parentIsPopup]="false" >
       </spafx-menu-item>
     </li>
   </ul>

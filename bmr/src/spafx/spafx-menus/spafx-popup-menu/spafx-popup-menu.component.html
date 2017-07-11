@@ -1,3 +1,8 @@
-<p>
-  spafx-popup-menu works!
-</p>
+<li *ngFor="let item of menu">
+  <spafx-menu-item
+    [ngClass]="{'veritcal-menu': menuService.isVertical }"
+    [item]="item" 
+    class="in-popup"
+    >
+  </spafx-menu-item>
+</li>
