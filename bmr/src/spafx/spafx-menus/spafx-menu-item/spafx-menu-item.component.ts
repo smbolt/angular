@@ -9,15 +9,15 @@ import { SpaFxMenuService, SpaFxMenuItem } from '../../services/spafx-menu.servi
   styleUrls: ['./spafx-menu-item.component.css']
 })
 export class SpaFxMenuItemComponent implements OnInit {
-  @Input() item = <SpaFxMenuItem> null; // see angular-cli issue 2034
+  @Input() item = <SpaFxMenuItem>null; // see angular-cli issue 2034
   @HostBinding('class.parent-is-popup')
   @Input() parentIsPopup = true;
-  isActiveRoute="false";
+  isActiveRoute = false;
 
-  mouseInItem=false;
-  mouseInPopup=false;
-  popupLeft=0;
-  popupTop=34;
+  mouseInItem = false;
+  mouseInPopup = false;
+  popupLeft = 0;
+  popupTop = 34;
 
   constructor(private router: Router,
               private menuService: SpaFxMenuService) { }

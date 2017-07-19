@@ -8,7 +8,7 @@
 </div>
 <spafx-popup-menu
   *ngIf="mouseInPopup || mouseInItem"
-  [menu]='item.submenu'
+  [menu]='item.subMenu'
   [ngClass]="{'vertical-menu': menuService.isVertical }"
   (mouseleave)="onPopupMouseLeave($event)"
   (mouseenter)="onPopupMouseEnter($event)"
