@@ -1,5 +1,5 @@
 import { Component, ElementRef, HostBinding, HostListener, 
-         Input, OnInit } from '@angular/core';
+         Renderer, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SpaFxMenuService, SpaFxMenuItem } from '../../services/spafx-menu.service';
 
@@ -20,9 +20,31 @@ export class SpaFxMenuItemComponent implements OnInit {
   popupTop = 34;
 
   constructor(private router: Router,
-              private menuService: SpaFxMenuService) { }
+              private menuService: SpaFxMenuService, 
+              private el: ElementRef,
+              private renderer: Renderer) { }
 
   ngOnInit() {
+  }
+
+  @HostListener('click', ['$event'])
+  onClick(event) : void {
+    event.stopPropagation(); 
+
+    if (this.item.subMenu) {
+      if (this.menuService.isVertical) {
+        this.mouseInPopup = !this.mouseInPopup;
+      }
+    }
+    else if (this.item.route) {
+      // force horizontal menus to close by sending a mouseleave events
+      let newEvent = new MouseEvent('mouseleave', { bubbles: true});
+      this.renderer.invokeElementMethod(
+          this.el.nativeElement, 'dispatchEvent', [newEvent]);
+
+      this.router.navigate(['/' + this.item.route]);    
+
+    }
   }
 
   onPopupMouseEnter(event) : void {
