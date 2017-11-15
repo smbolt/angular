@@ -42,8 +42,7 @@ export class SpaFxMenuItemComponent implements OnInit {
       this.renderer.invokeElementMethod(
           this.el.nativeElement, 'dispatchEvent', [newEvent]);
 
-      this.router.navigate(['/' + this.item.route]);    
-
+      this.router.navigate(['/' + this.item.route]); 
     }
   }
 
