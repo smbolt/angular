@@ -1,15 +1,28 @@
-import { Component, ElementRef, HostBinding, HostListener, 
-         Renderer, Input, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Component, ElementRef, HostBinding, HostListener,
+         Input, OnInit, Renderer,
+         trigger, state, style, transition, animate } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+
 import { SpaFxMenuService, SpaFxMenuItem } from '../../services/spafx-menu.service';
 
 @Component({
   selector: 'spafx-menu-item',
   templateUrl: './spafx-menu-item.component.html',
-  styleUrls: ['./spafx-menu-item.component.css']
+  styleUrls: ['./spafx-menu-item.component.css'],
+  animations: [
+        trigger('visibilityChanged', [
+            transition(':enter', [   // :enter is alias to 'void => *'
+                style({opacity:0}),
+                animate(250, style({opacity:1})) 
+            ]),
+            transition(':leave', [   // :leave is alias to '* => void'
+                animate(100, style({opacity:0})) 
+            ])
+        ])
+    ]
 })
 export class SpaFxMenuItemComponent implements OnInit {
-  @Input() item = <SpaFxMenuItem>null; // see angular-cli issue 2034
+  @Input() item = <SpaFxMenuItem>null; // see angular-cli issue #2034
   @HostBinding('class.parent-is-popup')
   @Input() parentIsPopup = true;
   isActiveRoute = false;
@@ -19,7 +32,7 @@ export class SpaFxMenuItemComponent implements OnInit {
   popupLeft = 0;
   popupTop = 34;
 
-  constructor(private router: Router,
+  constructor(private router:Router,
               private menuService: SpaFxMenuService,
               private el: ElementRef,
               private renderer: Renderer) {
@@ -29,20 +42,21 @@ export class SpaFxMenuItemComponent implements OnInit {
     this.isActiveRoute = (route == '/' + this.item.route);
   }
 
-  ngOnInit() {
+  ngOnInit() : void {
     this.checkActiveRoute(this.router.url);
 
     this.router.events
         .subscribe((event) => {
           if (event instanceof NavigationEnd) {
             this.checkActiveRoute(event.url);
-            // console.log(event.url + ' ' + this.item.route + ' ' + this.isActiveRoute);
+            //console.log(event.url + ' ' + this.item.route + ' ' + this.isActiveRoute);
           }
         });
   }
 
   @HostListener('click', ['$event'])
-  onClick(event): void {
+  onClick(event) : void {
+
     event.stopPropagation();
 
     if (this.item.subMenu) {
@@ -51,29 +65,30 @@ export class SpaFxMenuItemComponent implements OnInit {
       }
     }
     else if (this.item.route) {
-      // force horizontal menus to close by sending a mouseleave events
-      let newEvent = new MouseEvent('mouseleave', { bubbles: true});
+      // force horizontal menus to close by sending a mouseleave event
+      let newEvent = new MouseEvent('mouseleave', {bubbles: true});
       this.renderer.invokeElementMethod(
           this.el.nativeElement, 'dispatchEvent', [newEvent]);
 
       this.router.navigate(['/' + this.item.route]); 
+	
     }
   }
 
   onPopupMouseEnter(event) : void {
-    if (!this.menuService.isVertical){
+    if (!this.menuService.isVertical) {
       this.mouseInPopup = true;
     }
   }
 
   onPopupMouseLeave(event) : void {
-    if (!this.menuService.isVertical){
+    if (!this.menuService.isVertical) {
       this.mouseInPopup = false;
     }
   }
 
   @HostListener('mouseleave', ['$event']) 
-  onMouseLeave(event): void {
+  onMouseLeave(event) : void {
     if (!this.menuService.isVertical) {
       this.mouseInItem = false;
     }

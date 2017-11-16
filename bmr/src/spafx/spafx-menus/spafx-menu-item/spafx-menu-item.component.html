@@ -5,11 +5,11 @@
   <span>{{ item.text.toUpperCase() }}</span>
 </div>
 <spafx-popup-menu
-  *ngIf="mouseInPopup || mouseInItem"
-  [menu]='item.subMenu'
-  [ngClass]="{'vertical-menu': menuService.isVertical }"
-  (mouseleave)="onPopupMouseLeave($event)"
-  (mouseenter)="onPopupMouseEnter($event)"
-  [style.left.px]="popupLeft"
-  [style.top.px]="popupTop">
+    *ngIf="mouseInPopup || mouseInItem" 
+    [menu]='item.subMenu'
+    [ngClass]="{'vertical-menu': menuService.isVertical}"
+    (mouseleave)="onPopupMouseLeave($event)" 
+    (mouseenter)="onPopupMouseEnter($event)"
+    [style.left.px]="popupLeft"
+    [style.top.px]="popupTop">
 </spafx-popup-menu>

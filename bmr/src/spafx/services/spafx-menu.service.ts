@@ -11,7 +11,7 @@ export interface SpaFxMenuItem {
 export class SpaFxMenuService {
 
   items: Array<SpaFxMenuItem>;
-  isVertical = true;
+  isVertical = false;
   showingLeftSideMenu = false;
 
   toggleLeftSideMenu() : void {
@@ -19,7 +19,7 @@ export class SpaFxMenuService {
     this.showingLeftSideMenu = !this.showingLeftSideMenu;
   }
 
-  toggleOrientation() {
+  toggleMenuOrientation() {
     this.isVertical = !this.isVertical;
   }
 }

@@ -13,7 +13,7 @@
     *ngIf="!menuService.showingLeftSideMenu" 
     class="btn btn-sm"
     [ngClass]="{ 'horizontal': !menuService.isVertical }"
-    (click)="menuService.toggleOrientation()">
+    (click)="menuService.toggleMenuOrientation()">
   <span *ngIf="menuService.isVertical" class="glyphicon glyphicon-menu-up"></span>
   <span *ngIf="!menuService.isVertical" class="glyphicon glyphicon-menu-left"></span>
 </button>
