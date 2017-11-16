@@ -1,6 +1,6 @@
 import { Component, ElementRef, HostBinding, HostListener, 
          Renderer, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { SpaFxMenuService, SpaFxMenuItem } from '../../services/spafx-menu.service';
 
 @Component({
@@ -20,16 +20,30 @@ export class SpaFxMenuItemComponent implements OnInit {
   popupTop = 34;
 
   constructor(private router: Router,
-              private menuService: SpaFxMenuService, 
+              private menuService: SpaFxMenuService,
               private el: ElementRef,
-              private renderer: Renderer) { }
+              private renderer: Renderer) {
+  }
+
+  checkActiveRoute(route: string) {
+    this.isActiveRoute = (route == '/' + this.item.route);
+  }
 
   ngOnInit() {
+    this.checkActiveRoute(this.router.url);
+
+    this.router.events
+        .subscribe((event) => {
+          if (event instanceof NavigationEnd) {
+            this.checkActiveRoute(event.url);
+            // console.log(event.url + ' ' + this.item.route + ' ' + this.isActiveRoute);
+          }
+        });
   }
 
   @HostListener('click', ['$event'])
-  onClick(event) : void {
-    event.stopPropagation(); 
+  onClick(event): void {
+    event.stopPropagation();
 
     if (this.item.subMenu) {
       if (this.menuService.isVertical) {
