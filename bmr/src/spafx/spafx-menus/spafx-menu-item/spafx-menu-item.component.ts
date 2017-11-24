@@ -1,5 +1,6 @@
 import { Component, ElementRef, HostBinding, HostListener,
-         Input, OnInit, Renderer } from '@angular/core';
+         Input, OnInit, Renderer,
+         trigger, state, style, transition, animate } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 
 
@@ -8,7 +9,18 @@ import { SpaFxMenuService, SpaFxMenuItem } from '../../services/spafx-menu.servi
 @Component({
   selector: 'spafx-menu-item',
   templateUrl: './spafx-menu-item.component.html',
-  styleUrls: ['./spafx-menu-item.component.css']
+  styleUrls: ['./spafx-menu-item.component.css'],
+  animations: [
+    trigger('visibilityChanged', [
+      transition(':enter', [
+        style({opacity: 0}),
+        animate(500, style({opacity: 1}))
+      ]),
+      transition(':leave', [
+        animate(500, style({opacity: 0}))
+      ])
+    ])
+  ]
 })
 export class SpaFxMenuItemComponent implements OnInit {
   @Input() item = <SpaFxMenuItem>null; // see angular-cli issue #2034
