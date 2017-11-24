@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { SpaFxScreenService} from './../services/spafx-screen.service';
-import { SpaFxMenuService } from './../services/spafx-menu.service';
+
+import { SpaFxScreenService} from '../services/spafx-screen.service';
+import { SpaFxMenuService } from '../services/spafx-menu.service';
 
 @Component({
   selector: 'spafx-title-bar',

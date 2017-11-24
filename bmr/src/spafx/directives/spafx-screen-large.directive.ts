@@ -1,6 +1,7 @@
 import { Directive, Input, OnDestroy, TemplateRef, ViewContainerRef } from '@angular/core';
+
 import { SpaFxScreenService } from '../services/spafx-screen.service';
-import { Subscription } from 'rxJs/Subscription';
+import { Subscription } from 'rxjs/Subscription';
 
 @Directive ({ selector: '[screenLarge]'})
 export class SpaFxScreenLarge implements OnDestroy {
@@ -12,16 +13,17 @@ export class SpaFxScreenLarge implements OnDestroy {
               private screenService: SpaFxScreenService) {
 
     this.screenSubscription = screenService.resize$.subscribe(() => this.onResize());
+
   }
 
   @Input()
   set screenLarge(condition) {
+    // ignore the passed condition and set it based on screen size
     condition = this.screenService.screenWidth >= this.screenService.largeBreakpoint;
 
     if (condition && !this.hasView) {
       this.hasView = true;
       this.viewContainer.createEmbeddedView(this.template);
-
     } else if (!condition && this.hasView) {
       this.hasView = false;
       this.viewContainer.clear();
@@ -33,7 +35,7 @@ export class SpaFxScreenLarge implements OnDestroy {
   }
 
   onResize() {
-    // just trigger the setter
+    // trigger the setter
     this.screenLarge = false;
   }
 }

@@ -1,7 +1,8 @@
 
 <div *screenBelowLarge class="title-bar-small ovrd-title-bar-small">
   <span class="glyphicon glyphicon-menu-hamburger"
-        (click)="menuService.toggleLeftSideMenu()"></span>
+        (click)="menuService.toggleLeftSideMenu()">
+  </span>
   <div class="small-image-holder">
     <img class="small-image" src="assets/images/bmr-logo.png" alt="BMR Logo" >
   </div>
@@ -10,7 +11,7 @@
 
 <div *screenLarge class="title-bar ovrd-title-bar">
   <img src="assets/images/bmr-logo.png" alt="BMR Logo" >
-  <div class="menu-area">
+  <div class="menu-area" >
       <spafx-top-bar>
       </spafx-top-bar>
       <spafx-menu *ngIf="!menuService.isVertical">

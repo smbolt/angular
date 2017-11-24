@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SpaFxConfigService } from './../services/spafx-config.service';
+
+import { SpaFxConfigService } from '../services/spafx-config.service';
 
 @Component({
   selector: 'spafx-top-bar',

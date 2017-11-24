@@ -3,7 +3,7 @@
     <li *ngFor="let item of menuService.items">
       <spafx-menu-item [item]="item"
                        [ngClass]="{'vertical-menu': menuService.isVertical }" 
-                       [parentIsPopup]="false" >
+                       [parentIsPopup]="false">
       </spafx-menu-item>
     </li>
   </ul>
@@ -12,7 +12,7 @@
 <button
     *ngIf="!menuService.showingLeftSideMenu" 
     class="btn btn-sm"
-    [ngClass]="{ 'horizontal': !menuService.isVertical }"
+    [ngClass]="{'horizontal': !menuService.isVertical }"
     (click)="menuService.toggleMenuOrientation()">
   <span *ngIf="menuService.isVertical" class="glyphicon glyphicon-menu-up"></span>
   <span *ngIf="!menuService.isVertical" class="glyphicon glyphicon-menu-left"></span>

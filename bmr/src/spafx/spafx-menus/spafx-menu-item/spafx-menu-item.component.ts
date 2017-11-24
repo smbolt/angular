@@ -1,25 +1,14 @@
 import { Component, ElementRef, HostBinding, HostListener,
-         Input, OnInit, Renderer,
-         trigger, state, style, transition, animate } from '@angular/core';
+         Input, OnInit, Renderer } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+
 
 import { SpaFxMenuService, SpaFxMenuItem } from '../../services/spafx-menu.service';
 
 @Component({
   selector: 'spafx-menu-item',
   templateUrl: './spafx-menu-item.component.html',
-  styleUrls: ['./spafx-menu-item.component.css'],
-  animations: [
-        trigger('visibilityChanged', [
-            transition(':enter', [   // :enter is alias to 'void => *'
-                style({opacity:0}),
-                animate(250, style({opacity:1})) 
-            ]),
-            transition(':leave', [   // :leave is alias to '* => void'
-                animate(100, style({opacity:0})) 
-            ])
-        ])
-    ]
+  styleUrls: ['./spafx-menu-item.component.css']
 })
 export class SpaFxMenuItemComponent implements OnInit {
   @Input() item = <SpaFxMenuItem>null; // see angular-cli issue #2034
@@ -39,6 +28,8 @@ export class SpaFxMenuItemComponent implements OnInit {
   }
 
   checkActiveRoute(route: string) {
+    console.log('1 route=' + route);
+    console.log('2 this.item.route=' + this.item.route);
     this.isActiveRoute = (route == '/' + this.item.route);
   }
 
@@ -49,7 +40,7 @@ export class SpaFxMenuItemComponent implements OnInit {
         .subscribe((event) => {
           if (event instanceof NavigationEnd) {
             this.checkActiveRoute(event.url);
-            //console.log(event.url + ' ' + this.item.route + ' ' + this.isActiveRoute);
+            console.log('3 event.url=' + event.url + ' ' + this.item.route + ' ' + this.isActiveRoute);
           }
         });
   }

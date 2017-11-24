@@ -4,7 +4,7 @@ export let initialMenuItems: Array<SpaFxMenuItem> = [
   {
     text: 'Dashboard',
     icon: 'glyphicon-dashboard',
-    route: '/dashboard',
+    route: 'dashboard',
     subMenu: null
   },
   {
