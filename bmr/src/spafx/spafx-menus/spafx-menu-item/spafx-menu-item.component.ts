@@ -18,6 +18,7 @@ export class SpaFxMenuItemComponent implements OnInit {
 
   mouseInItem = false;
   mouseInPopup = false;
+  
   popupLeft = 0;
   popupTop = 34;
 
@@ -28,8 +29,6 @@ export class SpaFxMenuItemComponent implements OnInit {
   }
 
   checkActiveRoute(route: string) {
-    console.log('1 route=' + route);
-    console.log('2 this.item.route=' + this.item.route);
     this.isActiveRoute = (route == '/' + this.item.route);
   }
 
@@ -40,7 +39,7 @@ export class SpaFxMenuItemComponent implements OnInit {
         .subscribe((event) => {
           if (event instanceof NavigationEnd) {
             this.checkActiveRoute(event.url);
-            console.log('3 event.url=' + event.url + ' ' + this.item.route + ' ' + this.isActiveRoute);
+            //console.log('3 event.url=' + event.url + ' ' + this.item.route + ' ' + this.isActiveRoute);
           }
         });
   }
