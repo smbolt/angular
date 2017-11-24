@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+
 import { SpaFxConfigService } from './services/spafx-config.service';
 import { SpaFxScreenService } from './services/spafx-screen.service';
 import { SpaFxMenuService } from './services/spafx-menu.service';
@@ -14,11 +16,14 @@ import { SpaFxTopBarComponent } from './spafx-top-bar/spafx-top-bar.component';
 import { SpaFxStatusBarComponent } from './spafx-status-bar/spafx-status-bar.component';
 import { SpaFxScreenLarge } from './directives/spafx-screen-large.directive';
 import { SpaFxScreenBelowLarge } from './directives/spafx-screen-below-large.directive';
+import { SpaFxSignInComponent } from './spafx-users/spafx-sign-in/spafx-sign-in.component';
+import { SpaFxRegisterUserComponent } from './spafx-users/spafx-register-user/spafx-register-user.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   declarations: [
     SpaFxBodyComponent,
@@ -30,7 +35,9 @@ import { SpaFxScreenBelowLarge } from './directives/spafx-screen-below-large.dir
     SpaFxScreenBelowLarge,
     SpaFxMenuComponent,
     SpaFxMenuItemComponent,
-    SpaFxPopupMenuComponent   
+    SpaFxPopupMenuComponent,
+    SpaFxSignInComponent,
+    SpaFxRegisterUserComponent
   ],
   providers:[
     SpaFxConfigService,

@@ -1,0 +1,14 @@
+This document provides reminders of things that need to be changed in order
+for the SpaFx framework to be as generic as possible.
+
+1. In spafx-sign-in.component.html, the img src value is hard-coded and needs to be supplied
+   via configuration.  The same goes for the background image in spafx-sign-in.component.css.
+   Use the SpaFxConfigService object in spafx-config.service.ts to provide configurations.
+   The configuration settings can be accessed in the OnInit code of the SpaFxSignInComponent
+   or in the view (html).
+   
+2. The SpaFxConfigService should eventually have data driven properties and not provide its
+   values via hard-coding.
+
+3. Related to item 1 above, the same goes for the SpaFxRegisterUser component.  There are hard-coded
+   file references in the SpaFx framework - should be provided by the config service.
