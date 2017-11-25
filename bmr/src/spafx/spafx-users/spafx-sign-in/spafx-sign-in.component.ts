@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SpaFxUserApi } from '../spafx-user-api';
 
 @Component({
   selector: 'spafx-sign-in',
@@ -9,7 +10,7 @@ export class SpaFxSignInComponent implements OnInit {
 
   formError: string;
   submitting = false;
-  constructor() { }
+  constructor(private userApi: SpaFxUserApi) { }
 
   ngOnInit() {
   }
