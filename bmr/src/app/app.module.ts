@@ -13,6 +13,8 @@ import { CountryDetailComponent } from './country-detail/country-detail.componen
 import { CountryListComponent } from './country-list/country-list.component';
 import { CountryMaintComponent } from './country-maint/country-maint.component';
 import { AuthenticatedUserComponent } from './authenticated-user/authenticated-user.component';
+import { UserService } from './services/user/user.service';
+import { SpaFxUserApi } from '../spafx/spafx-users/spafx-user-api';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,10 @@ import { AuthenticatedUserComponent } from './authenticated-user/authenticated-u
     SpaFxModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [
+    { provide: UserService, useClass: UserService },
+    { provide: SpaFxUserApi, useExisting: UserService }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
