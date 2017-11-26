@@ -15,6 +15,7 @@ import { CountryMaintComponent } from './country-maint/country-maint.component';
 import { AuthenticatedUserComponent } from './authenticated-user/authenticated-user.component';
 import { UserService } from './services/user/user.service';
 import { SpaFxUserApi } from '../spafx/spafx-users/spafx-user-api';
+import { AuthGuard } from './services/user/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -34,8 +35,10 @@ import { SpaFxUserApi } from '../spafx/spafx-users/spafx-user-api';
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
+    // UserService,  --this line will work, but the next line shows more info...
     { provide: UserService, useClass: UserService },
-    { provide: SpaFxUserApi, useExisting: UserService }
+    { provide: SpaFxUserApi, useExisting: UserService },
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

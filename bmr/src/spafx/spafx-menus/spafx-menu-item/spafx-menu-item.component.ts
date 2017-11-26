@@ -34,14 +34,14 @@ export class SpaFxMenuItemComponent implements OnInit {
   popupLeft = 0;
   popupTop = 34;
 
-  constructor(private router:Router,
+  constructor(private router: Router,
               private menuService: SpaFxMenuService,
               private el: ElementRef,
               private renderer: Renderer) {
   }
 
   checkActiveRoute(route: string) {
-    this.isActiveRoute = (route == '/' + this.item.route);
+    this.isActiveRoute = (route === this.item.route);
   }
 
   ngOnInit() : void {
@@ -51,13 +51,13 @@ export class SpaFxMenuItemComponent implements OnInit {
         .subscribe((event) => {
           if (event instanceof NavigationEnd) {
             this.checkActiveRoute(event.url);
-            //console.log('3 event.url=' + event.url + ' ' + this.item.route + ' ' + this.isActiveRoute);
+            // console.log('3 event.url=' + event.url + ' ' + this.item.route + ' ' + this.isActiveRoute);
           }
         });
   }
 
   @HostListener('click', ['$event'])
-  onClick(event) : void {
+  onClick(event): void {
 
     event.stopPropagation();
 
@@ -72,38 +72,37 @@ export class SpaFxMenuItemComponent implements OnInit {
       this.renderer.invokeElementMethod(
           this.el.nativeElement, 'dispatchEvent', [newEvent]);
 
-      this.router.navigate(['/' + this.item.route]); 
-	
+      this.router.navigate(['/' + this.item.route]);
     }
   }
 
-  onPopupMouseEnter(event) : void {
+  onPopupMouseEnter(event): void {
     if (!this.menuService.isVertical) {
       this.mouseInPopup = true;
     }
   }
 
-  onPopupMouseLeave(event) : void {
+  onPopupMouseLeave(event): void {
     if (!this.menuService.isVertical) {
       this.mouseInPopup = false;
     }
   }
 
-  @HostListener('mouseleave', ['$event']) 
-  onMouseLeave(event) : void {
+  @HostListener('mouseleave', ['$event'])
+  onMouseLeave(event): void {
     if (!this.menuService.isVertical) {
       this.mouseInItem = false;
     }
   }
 
-  @HostListener('mouseenter') 
-  onMouseEnter() : void {
+  @HostListener('mouseenter')
+  onMouseEnter(): void {
     if (!this.menuService.isVertical) {
       if (this.item.subMenu) {
         this.mouseInItem = true;
         if (this.parentIsPopup) {
           this.popupLeft = 160;
-          this.popupTop = 0; 
+          this.popupTop = 0;
         }
       }
     }

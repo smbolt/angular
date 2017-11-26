@@ -33,3 +33,8 @@ span.glyphicon {
     font-size: 11px;
 }
 
+.sign-out {
+    margin-left:12px;
+    cursor: pointer;
+}
+

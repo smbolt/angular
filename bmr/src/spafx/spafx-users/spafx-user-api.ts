@@ -2,6 +2,6 @@ import { Observable } from 'rxjs/Observable';
 
 export abstract class SpaFxUserApi {
   signIn: (userName: string, password: string, rememberMe: boolean) => Observable<any>;
-  // signOut:
+  signOut: () => Observable<any>;
   // changePassword:
 }
