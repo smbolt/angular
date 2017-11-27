@@ -1,10 +1,6 @@
 # Bmr
 
-<<<<<<< HEAD
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.1.
-=======
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.3.
->>>>>>> 0c1ab07e3b10908a3c77a070b1f6f17c53c92660
 
 ## Development server
 
